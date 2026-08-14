@@ -1,0 +1,8 @@
+from fastapi import FastAPI, Path, Query
+from typing import Optional
+
+app = FastAPI()
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: int = Path(..., gt=0)):
+ return {"item_id": item_id}
